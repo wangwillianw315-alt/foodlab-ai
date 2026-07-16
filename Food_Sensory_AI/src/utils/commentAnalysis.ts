@@ -1,0 +1,6 @@
+const STOP=new Set('a an and are as at be but by for from has have he her his i in is it its of on or our she that the their they this to was were will with you your'.split(' '));
+export const tokeniseComments=(v:string[])=>v.flatMap(s=>s.toLowerCase().replace(/[^a-z0-9\s'-]/g,' ').split(/\s+/).filter(Boolean));
+export const removeStopWords=(v:string[],custom:string[]=[])=>{const s=new Set([...STOP,...custom.map(x=>x.toLowerCase())]);return v.filter(x=>!s.has(x))};
+export const calculateKeywordFrequency=(v:string[])=>Object.entries(v.reduce<Record<string,number>>((a,x)=>(a[x]=(a[x]||0)+1,a),{})).map(([keyword,count])=>({keyword,count})).sort((a,b)=>b.count-a.count||a.keyword.localeCompare(b.keyword));
+export const groupSynonyms=(v:string[],groups:Record<string,string[]>)=>{const map=new Map<string,string>();Object.entries(groups).forEach(([k,x])=>[k,...x].forEach(y=>map.set(y.toLowerCase(),k)));return v.map(x=>map.get(x)||x)};
+export const extractKeywordContext=(comments:string[],keyword:string,window=35)=>comments.filter(x=>x.toLowerCase().includes(keyword.toLowerCase())).map(x=>{const i=x.toLowerCase().indexOf(keyword.toLowerCase());return x.slice(Math.max(0,i-window),i+keyword.length+window)});

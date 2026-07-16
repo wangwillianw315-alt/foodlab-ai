@@ -1,0 +1,27 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"https://foodlab.local/schemas/foodlab-envelope.schema.json",
+  "title":"FoodLab AI Transfer Envelope 1.0.0",
+  "type":"object",
+  "required":["foodlab_transfer","schema_version","transfer_id","transfer_type","source_module","target_module","exported_at","exported_by","workspace_id","source_record_id","payload","metadata"],
+  "properties":{
+    "foodlab_transfer":{"const":true},
+    "schema_version":{"const":"1.0.0"},
+    "transfer_id":{"type":"string","pattern":"^TX-[A-Fa-f0-9]{8,}$"},
+    "transfer_type":{"enum":["PRODUCT_TO_SENSORY","SENSORY_TO_SHELF_LIFE","SHELF_LIFE_TO_QA"]},
+    "source_module":{"enum":["PRODUCT_DEVELOPMENT","SENSORY","SHELF_LIFE"]},
+    "target_module":{"enum":["SENSORY","SHELF_LIFE","QA"]},
+    "exported_at":{"type":"string","format":"date-time"},
+    "exported_by":{"type":"string","minLength":1},
+    "workspace_id":{"type":"string","pattern":"^WS-[A-Fa-f0-9]{8,}$"},
+    "source_record_id":{"type":"string","minLength":1},
+    "payload":{"type":"object"},
+    "metadata":{
+      "type":"object",
+      "required":["application_version","notes","disclaimer"],
+      "properties":{"application_version":{"type":"string","minLength":1},"notes":{"type":"string"},"disclaimer":{"type":"string","minLength":1}},
+      "additionalProperties":true
+    }
+  },
+  "additionalProperties":true
+}

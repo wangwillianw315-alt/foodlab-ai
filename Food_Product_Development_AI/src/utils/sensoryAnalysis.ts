@@ -1,0 +1,8 @@
+import type {SensoryResponse} from '../types/productDevelopment';
+export const calculateMean=(v:(number|null)[])=>{const n=v.filter((x):x is number=>typeof x==='number'&&Number.isFinite(x));return n.length?n.reduce((a,b)=>a+b,0)/n.length:null};
+export const calculateMedian=(v:(number|null)[])=>{const n=v.filter((x):x is number=>typeof x==='number'&&Number.isFinite(x)).sort((a,b)=>a-b);if(!n.length)return null;const m=Math.floor(n.length/2);return n.length%2?n[m]:(n[m-1]+n[m])/2};
+export const calculateStandardDeviation=(v:(number|null)[])=>{const n=v.filter((x):x is number=>typeof x==='number'&&Number.isFinite(x)),mean=calculateMean(n);if(mean==null||n.length<2)return 0;return Math.sqrt(n.reduce((s,x)=>s+(x-mean)**2,0)/(n.length-1))};
+export const calculateAttributeSummary=(v:(number|null)[])=>{const n=v.filter((x):x is number=>typeof x==='number'&&Number.isFinite(x));return {mean:calculateMean(n),median:calculateMedian(n),standardDeviation:calculateStandardDeviation(n),min:n.length?Math.min(...n):null,max:n.length?Math.max(...n):null,count:n.length}};
+const keywords=['sweet','bitter','dry','soft','hard','creamy','artificial','fruity','bland','strong'];
+export const calculateCommentKeywordFrequency=(comments:string[])=>Object.fromEntries(keywords.map(k=>[k,comments.reduce((n,c)=>n+(c.toLowerCase().match(new RegExp(`\\b${k}\\b`,'g'))?.length??0),0)]));
+export const validateSensoryResponse=(r:SensoryResponse)=>{const errors:string[]=[];if(!r.panelist_id.trim())errors.push('Panelist ID is required.');(['appearance','aroma','flavour','sweetness','texture','aftertaste','overall_liking'] as const).forEach(k=>{const v=r[k];if(v!=null&&(!Number.isFinite(v)||v<1||v>9))errors.push(`${k} must be between 1 and 9.`)});return errors};

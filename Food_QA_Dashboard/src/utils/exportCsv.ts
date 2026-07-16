@@ -1,0 +1,2 @@
+import Papa from 'papaparse'; import type { FoodQualityRecord } from '../types/quality';
+export function exportRecords(records:FoodQualityRecord[]) { const blob=new Blob([Papa.unparse(records.map(r=>({...r,failed_parameters:r.failed_parameters?.join('; '),warning_parameters:r.warning_parameters?.join('; '),missing_parameters:r.missing_parameters?.join('; ')})))],{type:'text/csv;charset=utf-8'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='food-quality-export.csv';a.click();URL.revokeObjectURL(url); }

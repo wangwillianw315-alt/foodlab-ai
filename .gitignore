@@ -1,0 +1,70 @@
+# Dependencies
+node_modules/
+**/node_modules/
+.pnpm-store/
+
+# Production builds, test output, and tool caches
+dist/
+**/dist/
+build/
+**/build/
+out/
+**/out/
+coverage/
+**/coverage/
+.nyc_output/
+.vite/
+**/.vite/
+.cache/
+**/.cache/
+.netlify/
+**/.netlify/
+playwright-report/
+**/playwright-report/
+test-results/
+**/test-results/
+*.tsbuildinfo
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Environment files and local secrets
+.env
+.env.*
+**/.env
+**/.env.*
+!.env.example
+!**/.env.example
+*.local
+*.pem
+*.key
+*.p12
+*.pfx
+*.jks
+*.keystore
+credentials.json
+service-account*.json
+
+# Editor and operating-system files
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Temporary and local application files
+tmp/
+temp/
+*.local.json
+*.bak
+*.backup
+backup/
+backups/
+
+# Local integration snapshots are not part of the V1.0 release source
+/phase-2-backups/
+*.tmp

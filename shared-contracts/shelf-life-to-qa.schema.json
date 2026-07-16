@@ -1,0 +1,9 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"https://foodlab.local/schemas/shelf-life-to-qa.schema.json",
+  "title":"Shelf Life to QA Transfer 1.0.0",
+  "allOf":[
+    {"$ref":"foodlab-envelope.schema.json"},
+    {"type":"object","properties":{"transfer_type":{"const":"SHELF_LIFE_TO_QA"},"source_module":{"const":"SHELF_LIFE"},"target_module":{"const":"QA"},"source_record_id":{"type":"string","pattern":"^SL-[A-Fa-f0-9]{8,}$"},"payload":{"type":"object","required":["product_project_id","product_id","formula_version_id","shelf_life_study_id","product_name","product_category","planning_shelf_life_days","storage_condition","packaging_notes","qa_parameters","scientific_limitations"],"properties":{"product_project_id":{"type":"string","pattern":"^PD-[A-Fa-f0-9]{8,}$"},"product_id":{"type":"string","pattern":"^PR-[A-Fa-f0-9]{8,}$"},"formula_version_id":{"type":"string","pattern":"^FV-[A-Fa-f0-9]{8,}$"},"sensory_project_id":{"type":"string","pattern":"^SN-[A-Fa-f0-9]{8,}$"},"shelf_life_study_id":{"type":"string","pattern":"^SL-[A-Fa-f0-9]{8,}$"},"product_name":{"type":"string","minLength":1},"product_category":{"type":"string"},"planning_shelf_life_days":{"type":["number","null"]},"storage_condition":{"type":"string"},"packaging_notes":{"type":"string"},"qa_parameters":{"type":"array","items":{"type":"object","required":["parameter_name","unit","lower_limit","upper_limit","warning_rule","confirmed_by_user"],"properties":{"parameter_name":{"type":"string"},"unit":{"type":"string"},"lower_limit":{"type":["number","null"]},"upper_limit":{"type":["number","null"]},"warning_rule":{"type":"string"},"confirmed_by_user":{"const":true}},"additionalProperties":true}},"scientific_limitations":{"type":"array","items":{"type":"string"}}},"additionalProperties":true}}}
+  ]
+}

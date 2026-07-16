@@ -1,0 +1,5 @@
+{
+  "foodlab_transfer":true,"schema_version":"1.0.0","transfer_id":"TX-B1C2D3E4","transfer_type":"SENSORY_TO_SHELF_LIFE","source_module":"SENSORY","target_module":"SHELF_LIFE","exported_at":"2026-07-16T00:00:00.000Z","exported_by":"Local user","workspace_id":"WS-A1B2C3D4","source_record_id":"SN-B1C2D3E4",
+  "payload":{"product_project_id":"PD-A1B2C3D4","product_id":"PR-A1B2C3D4","formula_version_id":"FV-A1B2C3D4","sensory_project_id":"SN-B1C2D3E4","sensory_test_id":"ST-B1C2D3E4","product_name":"Plant Protein Bar","product_category":"Snack","selected_sample":{"sample_name":"Protein Bar F2","blind_code":"417","formula_version_name":"Formula 2"},"aggregated_sensory_summary":{"overall_liking_mean":7.2,"response_count":24,"purchase_intent_top_two_box":62.5,"jar_findings":["Texture slightly firm"],"positive_keywords":["nutty","balanced"],"negative_keywords":["dry"],"limitations":["Demonstration panel; confirm with target consumers"]},"recommended_shelf_life_focus":["Appearance","Flavour","Texture","Overall Acceptability"]},
+  "metadata":{"application_version":"1.0.0","notes":"Aggregated results only","disclaimer":"Individual panelist records are not included."}
+}

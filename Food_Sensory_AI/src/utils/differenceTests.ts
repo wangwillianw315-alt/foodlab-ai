@@ -1,0 +1,5 @@
+const choose=(n:number,k:number)=>{let r=1;for(let i=1;i<=k;i++)r=r*(n-k+i)/i;return r};
+export const calculateBinomialProbability=(n:number,k:number,p:number,tail=true)=>{if(n<0||k<0||k>n||p<0||p>1)return 0;const pmf=(i:number)=>choose(n,i)*p**i*(1-p)**(n-i);return tail?Array.from({length:n-k+1},(_,j)=>pmf(k+j)).reduce((a,b)=>a+b,0):pmf(k)};
+export const calculateMinimumCorrectResponses=(n:number,alpha=.05,p=1/3)=>{for(let k=0;k<=n;k++)if(calculateBinomialProbability(n,k,p)<=alpha)return k;return n+1};
+export const calculateTriangleTestResult=(correct:number,total:number,alpha=.05)=>{const pValue=calculateBinomialProbability(total,correct,1/3),minimumCorrect=calculateMinimumCorrectResponses(total,alpha);return{correct,total,correctRate:total?correct/total*100:0,pValue,minimumCorrect,significant:correct>=minimumCorrect,statement:'A significant triangle test indicates a detectable difference, not which sample is better.'}};
+export const calculatePairedPreferenceTest=(a:number,b:number,alpha=.05)=>{const n=a+b,k=Math.max(a,b),pValue=Math.min(1,2*calculateBinomialProbability(n,k,.5));return{a,b,n,pValue,significant:pValue<alpha}};

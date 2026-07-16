@@ -1,0 +1,10 @@
+export const clean=(v:(number|null|undefined)[])=>v.filter((x):x is number=>typeof x==='number'&&Number.isFinite(x));
+export const calculateMean=(v:(number|null|undefined)[])=>{const a=clean(v);return a.length?a.reduce((s,x)=>s+x,0)/a.length:null};
+export const calculateMedian=(v:(number|null|undefined)[])=>{const a=clean(v).sort((x,y)=>x-y);if(!a.length)return null;const m=Math.floor(a.length/2);return a.length%2?a[m]:(a[m-1]+a[m])/2};
+export const calculateStandardDeviation=(v:(number|null|undefined)[])=>{const a=clean(v),m=calculateMean(a);if(a.length<2||m===null)return null;return Math.sqrt(a.reduce((s,x)=>s+(x-m)**2,0)/(a.length-1))};
+export const calculateStandardError=(v:(number|null|undefined)[])=>{const a=clean(v),sd=calculateStandardDeviation(a);return sd===null?null:sd/Math.sqrt(a.length)};
+export const calculateConfidenceInterval=(v:(number|null|undefined)[],z=1.96)=>{const m=calculateMean(v),se=calculateStandardError(v);return m===null||se===null?{low:null,high:null}:{low:m-z*se,high:m+z*se}};
+export const calculateFrequency=<T extends string|number>(v:T[])=>v.reduce<Record<string,number>>((a,x)=>(a[String(x)]=(a[String(x)]||0)+1,a),{});
+export const calculatePercentage=(part:number,total:number)=>total?part/total*100:0;
+export const calculateCorrelation=(x:(number|null)[],y:(number|null)[])=>{const pairs=x.map((n,i)=>[n,y[i]]).filter((p):p is [number,number]=>p[0]!==null&&p[1]!==null&&Number.isFinite(p[0])&&Number.isFinite(p[1]));if(pairs.length<2)return null;const mx=calculateMean(pairs.map(p=>p[0]))!,my=calculateMean(pairs.map(p=>p[1]))!;const num=pairs.reduce((s,p)=>s+(p[0]-mx)*(p[1]-my),0),den=Math.sqrt(pairs.reduce((s,p)=>s+(p[0]-mx)**2,0)*pairs.reduce((s,p)=>s+(p[1]-my)**2,0));return den?num/den:null};
+export const calculateRankSum=(v:number[])=>v.reduce((a,b)=>a+b,0); export const calculateMeanRank=(v:number[])=>calculateMean(v);

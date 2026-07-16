@@ -1,0 +1,6 @@
+import type {FormulaIngredient} from '../types/productDevelopment';import {calculateTotalWeight} from './formulaCalculations';
+const scale=(lines:FormulaIngredient[],multiplier:number)=>{if(!Number.isFinite(multiplier)||multiplier<=0)throw new Error('Scale factor must be greater than zero.');return lines.map(l=>({...l,line_id:`${l.line_id}-scaled`,amount_g:Number((l.amount_g*multiplier).toFixed(2)),line_cost:l.cost_per_kg==null?null:Number((l.amount_g*multiplier/1000*l.cost_per_kg).toFixed(4))}))};
+export const scaleByMultiplier=(lines:FormulaIngredient[],multiplier:number)=>scale(lines,multiplier);
+export const scaleByTargetWeight=(lines:FormulaIngredient[],targetWeightG:number)=>{const total=calculateTotalWeight(lines);if(total<=0)throw new Error('Current formula weight must be greater than zero.');return scale(lines,targetWeightG/total)};
+export const scaleByServingCount=(lines:FormulaIngredient[],servingSizeG:number,count:number)=>{if(servingSizeG<=0||count<=0)throw new Error('Serving size and count must be greater than zero.');return scaleByTargetWeight(lines,servingSizeG*count)};
+export const calculateRoundingDifference=(lines:FormulaIngredient[],targetWeightG:number)=>Number((targetWeightG-calculateTotalWeight(lines)).toFixed(2));

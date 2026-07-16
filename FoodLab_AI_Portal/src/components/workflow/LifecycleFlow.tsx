@@ -1,0 +1,4 @@
+import {ArrowDown,ArrowRight} from 'lucide-react';
+import {Link} from 'react-router-dom';
+import {workflowSteps} from '../../data/workflow';
+export function LifecycleFlow({compact=false}:{compact?:boolean}){return <div className={compact?'lifecycle compact':'lifecycle'}>{workflowSteps.map((step,index)=>{const content=<><span>{String(index+1).padStart(2,'0')}</span><strong>{step.label}</strong>{!compact&&<small>{step.description}</small>}</>;return <div className="flow-item" key={step.label}><div className={step.moduleId?'flow-step connected':'flow-step'}>{step.moduleId?<Link to={`/modules#${step.moduleId}`}>{content}</Link>:content}</div>{index<workflowSteps.length-1&&<span className="flow-arrow"><ArrowRight className="desktop-arrow"/><ArrowDown className="mobile-arrow"/></span>}</div>})}</div>}

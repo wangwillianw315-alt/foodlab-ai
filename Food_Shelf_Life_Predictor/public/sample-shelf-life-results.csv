@@ -1,0 +1,2 @@
+study_code,condition_name,planned_day,parameter_name,replicate_number,measured_value,unit,qualifier,result_date,comments
+SL-YOG-001,4°C Real Time,28,pH,1,4.18,pH,EXACT,2026-06-29,Example import row

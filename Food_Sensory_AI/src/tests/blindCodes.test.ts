@@ -1,0 +1,2 @@
+import {describe,expect,it} from 'vitest'; import {generateBlindCode,generateBlindCodes,hasDuplicateBlindCodes} from '../utils/blindCodes';
+describe('blind codes',()=>{it('uses unique three digit codes',()=>{const x=generateBlindCodes(50);expect(x.every(c=>/^\d{3}$/.test(c))).toBe(true);expect(hasDuplicateBlindCodes(x)).toBe(false)});it('avoids used code',()=>expect(generateBlindCode(['100'],()=>0)).not.toBe('100'))});

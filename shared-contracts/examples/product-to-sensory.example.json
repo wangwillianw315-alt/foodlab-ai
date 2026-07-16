@@ -1,0 +1,5 @@
+{
+  "foodlab_transfer":true,"schema_version":"1.0.0","transfer_id":"TX-A1B2C3D4","transfer_type":"PRODUCT_TO_SENSORY","source_module":"PRODUCT_DEVELOPMENT","target_module":"SENSORY","exported_at":"2026-07-16T00:00:00.000Z","exported_by":"Local user","workspace_id":"WS-A1B2C3D4","source_record_id":"PD-A1B2C3D4",
+  "payload":{"product_project_id":"PD-A1B2C3D4","product_id":"PR-A1B2C3D4","product_name":"Plant Protein Bar","product_category":"Snack","project_objective":"Compare shortlisted formula variants.","target_consumer":"Active adults","samples":[{"formula_version_id":"FV-A1B2C3D4","formula_version_name":"Formula 2","sample_name":"Protein Bar F2","allergens":["Soy"],"ingredient_summary":["Oat","Pea protein","Date paste"],"demo_only":true}],"suggested_test_design":{"test_types":["9-point Hedonic","Preference","JAR","Purchase Intent"],"attributes":["Appearance","Aroma","Flavour","Texture","Overall Acceptability"],"notes":"Use blinded, randomised presentation."}},
+  "metadata":{"application_version":"1.0.0","notes":"Explicit local JSON transfer","disclaimer":"Educational planning data; verify before use."}
+}

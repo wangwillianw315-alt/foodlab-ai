@@ -1,0 +1,1 @@
+export function LoadingState(){return <div className="flex min-h-[50vh] items-center justify-center"><div className="h-8 w-8 animate-spin rounded-full border-4 border-navy-100 border-t-navy-600"/><span className="ml-3 text-sm text-slate-600">Loading quality data…</span></div>}

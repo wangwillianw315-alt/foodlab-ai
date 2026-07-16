@@ -1,0 +1,2 @@
+import { AlertTriangle, RefreshCw } from 'lucide-react';
+export function ErrorMessage({message,onRetry}:{message:string;onRetry?:()=>void}){return <div className="flex flex-wrap items-center gap-3 rounded-xl border border-rose-200 bg-rose-50 p-4 text-sm text-rose-800"><AlertTriangle size={18}/><span className="flex-1">{message}</span>{onRetry&&<button className="btn-secondary" onClick={onRetry}><RefreshCw size={15}/>Retry</button>}</div>}
