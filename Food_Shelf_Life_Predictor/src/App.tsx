@@ -69,6 +69,7 @@ import {
 } from "./utils/acceleratedShelfLife";
 import { TransferWorkspace } from "./components/TransferWorkspace";
 import { createFoodLabId, getOrCreateWorkspaceId } from "./utils/foodlabTransfer";
+import { resolvePortalUrl } from "./utils/portalUrl";
 const DISCLAIMER =
   "This application is for educational, research planning and demonstration purposes only. Shelf-life estimates must not be used as commercial expiry dates, food safety approvals or regulatory evidence without validated laboratory testing, approved methods, suitable challenge studies and review by qualified food safety professionals.";
 const nav = [
@@ -85,6 +86,7 @@ const nav = [
 function Layout() {
   const error = useShelfLifeStore((state) => state.error);
   const setError = useShelfLifeStore((state) => state.setError);
+  const portalUrl = resolvePortalUrl();
   return (
     <div className="shell">
       <aside className="side">
@@ -117,9 +119,23 @@ function Layout() {
         <header className="topbar">
           <div className="module-header-left">
             <Menu className="mobile" />
-            <a className="portal-link" href="http://localhost:5173/">
-              ← Back to Portal
-            </a>
+            {portalUrl ? (
+              <a
+                className="portal-link"
+                href={portalUrl}
+                rel="noopener noreferrer"
+              >
+                ← Back to Portal
+              </a>
+            ) : (
+              <span
+                className="portal-link"
+                title="Set VITE_PORTAL_URL to enable the Portal link"
+                aria-disabled="true"
+              >
+                Portal link not configured
+              </span>
+            )}
             <span className="module-name">Shelf Life Predictor</span>
           </div>
           <div className="module-header-right">
@@ -1330,6 +1346,13 @@ function About() {
           three observations. Weak fit (R² below 0.6) produces a warning. Q10
           and Arrhenius modules display their assumptions. Estimates include a
           planning safety factor and uncertainty language.
+        </p>
+      </div>
+      <div className="card" style={{ marginTop: 16 }}>
+        <h2 className="section-title">Developer</h2>
+        <p>
+          Tianyi Wang · Bachelor of Food Science · Lincoln University, New
+          Zealand
         </p>
       </div>
     </>

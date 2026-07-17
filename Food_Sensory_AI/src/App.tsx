@@ -71,8 +71,12 @@ export default function App() {
           ))}
         </nav>
         <div className="side-foot">
-          <span>Local-first · Phase 2</span>
+          <span>V1.0 · Local-first</span>
           <small>Educational & research planning</small>
+          <small>
+            Tianyi Wang · Bachelor of Food Science · Lincoln University, New
+            Zealand
+          </small>
         </div>
       </aside>
       <main>

@@ -17,6 +17,7 @@ import {
   X,
 } from "lucide-react";
 import { useProductDevelopmentStore } from "../store/productDevelopmentStore";
+import { resolvePortalUrl } from "../utils/portalUrl";
 const nav = [
   ["Dashboard", "/", LayoutDashboard],
   ["Projects", "/projects", ClipboardList],
@@ -33,6 +34,7 @@ export default function Layout({ children }: { children: ReactNode }) {
   const [open, setOpen] = useState(false),
     error = useProductDevelopmentStore((s) => s.storageError),
     reset = useProductDevelopmentStore((s) => s.resetDemoData);
+  const portalUrl = resolvePortalUrl();
   return (
     <div className="min-h-screen">
       <aside
@@ -99,14 +101,25 @@ export default function Layout({ children }: { children: ReactNode }) {
             </p>
           </div>
           <div className="ml-auto flex items-center gap-2">
-            <a
-              className="btn-secondary !px-2.5 sm:!px-3.5"
-              href="http://localhost:5173/"
-              title="Back to FoodLab AI Portal"
-            >
-              <ArrowLeft size={16} />
-              <span className="hidden sm:inline">Back to Portal</span>
-            </a>
+            {portalUrl ? (
+              <a
+                className="btn-secondary !px-2.5 sm:!px-3.5"
+                href={portalUrl}
+                rel="noopener noreferrer"
+                title="Back to FoodLab AI Portal"
+              >
+                <ArrowLeft size={16} />
+                <span className="hidden sm:inline">Back to Portal</span>
+              </a>
+            ) : (
+              <span
+                className="btn-secondary cursor-not-allowed !px-2.5 opacity-60 sm:!px-3.5"
+                title="Set VITE_PORTAL_URL to enable the Portal link"
+              >
+                <ArrowLeft size={16} />
+                <span className="hidden sm:inline">Portal link not configured</span>
+              </span>
+            )}
             <NavLink
               className="hidden text-xs font-medium text-slate-500 hover:text-teal md:inline"
               to="/about#disclaimer"
@@ -114,7 +127,7 @@ export default function Layout({ children }: { children: ReactNode }) {
               Disclaimer
             </NavLink>
             <span className="badge bg-emerald-100 text-emerald-700">
-              Phase 2 · Export ready
+              V1.0 · Export ready
             </span>
           </div>
         </header>

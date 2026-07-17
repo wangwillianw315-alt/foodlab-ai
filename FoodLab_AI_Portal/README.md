@@ -11,7 +11,7 @@ npm run test
 npm run build
 ```
 
-The Portal uses `http://localhost:5173`. Copy `.env.example` to `.env` to override module links.
+The Portal uses `http://localhost:5173`. During local development, missing module URL variables safely fall back to ports 5174-5177. For Netlify, configure the four `VITE_*_URL` values in the site UI using the actual deployed module URLs; `.env.example` contains non-sensitive deployment placeholders and no real `.env` should be committed.
 
 ## Scope
 
@@ -19,7 +19,7 @@ The Portal uses `http://localhost:5173`. Copy `.env.example` to `.env` to overri
 - Responsive food-product lifecycle
 - Module status, capabilities and availability check
 - Portfolio and author pages
-- External links to the four local applications
+- External links to the four configured applications
 - Workflow guidance for Product Development to Sensory, Sensory to Shelf Life, and Shelf Life to QA
 - Downloadable schema `1.0.0` examples and transfer-contract resources
 

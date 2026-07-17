@@ -11,7 +11,8 @@
     "dev:all": "concurrently -k -n PORTAL,PRODUCT,SENSORY,SHELF,QA -c cyan,blue,yellow,magenta,green \"node scripts/run-project.mjs FoodLab_AI_Portal dev 5173\" \"node scripts/run-project.mjs Food_Product_Development_AI dev 5174\" \"node scripts/run-project.mjs Food_Sensory_AI dev 5175\" \"node scripts/run-project.mjs Food_Shelf_Life_Predictor dev 5176\" \"node scripts/run-project.mjs Food_QA_Dashboard dev 5177\"",
     "build:all": "concurrently -n PORTAL,PRODUCT,SENSORY,SHELF,QA \"node scripts/run-project.mjs FoodLab_AI_Portal build\" \"node scripts/run-project.mjs Food_Product_Development_AI build\" \"node scripts/run-project.mjs Food_Sensory_AI build\" \"node scripts/run-project.mjs Food_Shelf_Life_Predictor build\" \"node scripts/run-project.mjs Food_QA_Dashboard build\"",
     "test:contracts": "node scripts/validate-phase2-contracts.mjs",
-    "test:all": "concurrently -n CONTRACTS,PORTAL,PRODUCT,SENSORY,SHELF,QA \"node scripts/validate-phase2-contracts.mjs\" \"node scripts/run-project.mjs FoodLab_AI_Portal test\" \"node scripts/run-project.mjs Food_Product_Development_AI test\" \"node scripts/run-project.mjs Food_Sensory_AI test\" \"node scripts/run-project.mjs Food_Shelf_Life_Predictor test\" \"node scripts/run-project.mjs Food_QA_Dashboard test\""
+    "test:all": "concurrently -n CONTRACTS,PORTAL,PRODUCT,SENSORY,SHELF,QA \"node scripts/validate-phase2-contracts.mjs\" \"node scripts/run-project.mjs FoodLab_AI_Portal test\" \"node scripts/run-project.mjs Food_Product_Development_AI test\" \"node scripts/run-project.mjs Food_Sensory_AI test\" \"node scripts/run-project.mjs Food_Shelf_Life_Predictor test\" \"node scripts/run-project.mjs Food_QA_Dashboard test\"",
+    "verify:netlify": "npm run build:all && node scripts/verify-netlify.mjs"
   },
   "devDependencies": {
     "concurrently": "^9.1.2"
