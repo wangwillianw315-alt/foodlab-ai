@@ -1,8 +1,8 @@
 # FoodLab AI Netlify deployment documentation
 
-This directory describes how to publish the five FoodLab AI V1.0 frontends as five independent Netlify sites from one GitHub repository.
+This directory documents the live FoodLab AI V1.0 deployment and how to maintain five independent Netlify sites from one GitHub repository.
 
-No Netlify login, site creation, repository connection or deployment has been performed as part of this preparation. The source remains a frontend-only, portfolio release: no database, authentication system, server-side API or other backend is introduced.
+All five production sites were published on 18 July 2026. GitHub continuous deployment still requires the documented per-site UI connection. The source remains a frontend-only portfolio release: no database, authentication system, server-side API or other backend is introduced.
 
 ## Documents
 
@@ -12,6 +12,9 @@ No Netlify login, site creation, repository connection or deployment has been pe
 - [`netlify-ignore-builds.md`](./netlify-ignore-builds.md) — optional monorepo ignore commands; these are documented but not enabled in `netlify.toml`.
 - [`metadata-audit.md`](./metadata-audit.md) — release metadata coverage and intentionally deferred non-blocking items.
 - [`netlify-readiness-report.md`](./netlify-readiness-report.md) — final local verification results, limitations and remaining manual actions.
+- [`LIVE_URLS.md`](./LIVE_URLS.md) — canonical public production URLs.
+- [`netlify-live-verification.md`](./netlify-live-verification.md) — live route, metadata, asset and disclaimer results.
+- [`NETLIFY_PRODUCTION_RELEASE_REPORT.md`](./NETLIFY_PRODUCTION_RELEASE_REPORT.md) — production status, environment variables and the remaining GitHub connection action.
 
 ## Standard build settings
 

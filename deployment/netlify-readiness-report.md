@@ -1,5 +1,7 @@
 # FoodLab AI V1.0 Netlify readiness report
 
+> Historical pre-deployment snapshot from 17 July 2026. Production deployment was completed on 18 July 2026; current live status is in [`NETLIFY_PRODUCTION_RELEASE_REPORT.md`](./NETLIFY_PRODUCTION_RELEASE_REPORT.md).
+
 ## Outcome
 
 The repository is prepared for manual connection through the Netlify web interface as five independent React + Vite sites. No Netlify login, site creation, repository connection or deployment was performed. No database, backend, Netlify Function or authentication feature was added.

@@ -1,6 +1,6 @@
 # Netlify deployment steps
 
-These steps intentionally stop at a reproducible manual procedure. Repository preparation did not log in to Netlify, connect the GitHub repository, create sites or deploy production builds.
+These steps remain the reproducible deployment procedure. The five V1.0 production sites were published on 18 July 2026; see [`LIVE_URLS.md`](./LIVE_URLS.md). GitHub continuous deployment is the only remaining manual site setup and is recorded in [`NETLIFY_PRODUCTION_RELEASE_REPORT.md`](./NETLIFY_PRODUCTION_RELEASE_REPORT.md).
 
 ## 1. Verify the release locally
 

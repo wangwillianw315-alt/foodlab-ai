@@ -1,10 +1,12 @@
-# Netlify site plan
+# Netlify site plan and allocation record
+
+All five preferred names were successfully allocated and published on 18 July 2026. The table below is now the canonical production naming record.
 
 ## Recommended sites and order
 
 Deploy the four workflow modules first, then deploy the Portal last. This order allows the Portal to be configured with final module URLs before its first production publication.
 
-| Order | Application | Suggested Netlify site name | Intended production URL |
+| Order | Application | Production Netlify site name | Production URL |
 |---:|---|---|---|
 | 1 | Product Development | `foodlab-product-development` | `https://foodlab-product-development.netlify.app` |
 | 2 | Sensory | `foodlab-sensory` | `https://foodlab-sensory.netlify.app` |
@@ -12,7 +14,7 @@ Deploy the four workflow modules first, then deploy the Portal last. This order 
 | 4 | QA | `foodlab-qa` | `https://foodlab-qa.netlify.app` |
 | 5 | Portal | `foodlab-ai` | `https://foodlab-ai.netlify.app` |
 
-Netlify site names are globally unique. If a suggested name is unavailable, use the allocated URL consistently in the environment variables below. Suggested alternatives are:
+Netlify site names are globally unique. The preferred names were available; these fallback names remain documented only for disaster recovery or a future separate environment:
 
 - Portal: `foodlab-ai-portfolio`
 - Product Development: `foodlab-product-dev`

@@ -9,9 +9,15 @@ FoodLab AI is a modular educational food science platform covering:
 - Shelf-Life Studies
 - Production Quality Monitoring
 
-- **Live Demo:** [TO BE ADDED]
-- **Demo Workflow:** [TO BE ADDED]
-- **LinkedIn:** [TO BE ADDED]
+## Live Demo
+
+- **FoodLab AI Portal:** https://foodlab-ai.netlify.app
+- **Food Product Development AI:** https://foodlab-product-development.netlify.app
+- **Food Sensory AI:** https://foodlab-sensory.netlify.app
+- **Food Shelf Life Predictor:** https://foodlab-shelf-life.netlify.app
+- **Food QA Dashboard:** https://foodlab-qa.netlify.app
+- **Guided Demo Workflow:** https://foodlab-ai.netlify.app/demo
+- **GitHub Repository:** https://github.com/wangwillianw315-alt/foodlab-ai
 
 ## Overview
 
@@ -111,7 +117,7 @@ The applications remain separate because their framework versions, routing, stat
 
 The V1.0 release gate passed:
 
-- **242 application tests** across **34 test files**
+- **252 application tests** across **34 test files**
 - **3 example transfers** validated against **4 shared schemas**
 - **5 production builds** completed successfully
 
@@ -120,6 +126,7 @@ Run the same verification locally:
 ```bash
 npm run test:all
 npm run build:all
+npm run verify:netlify
 ```
 
 Known non-blocking output is limited to jsdom chart-size notices in Product Development tests and bundle-size advisories for Sensory and Shelf Life.
